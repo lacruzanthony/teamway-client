@@ -1,6 +1,7 @@
 import React from "react";
 import "./styles.css";
 import axios from "axios";
+import Button from "./components/button";
 
 interface ICard {
   headline: string;
@@ -87,7 +88,8 @@ export default function App() {
           🔍
         </span>
       </h1>
-      <button onClick={onClickHandler}>GO TO TEST</button>
+      <Button onClick={onClickHandler} content="GO TO TEST" />
+      {/* <button onClick={onClickHandler}>GO TO TEST</button> */}
       {!isTestFinish && cards.length > 0 && <Question />}
       {isTestFinish && <Result />}
     </div>
