@@ -29,45 +29,41 @@ export default function App() {
       <>
         <h2>{card.headline}</h2>
         <ul>
-          {card.questions.map((q) => (
-            <li>
-              <button
+          {card.questions.map((q, idx) => (
+            <li key={idx}>
+              <Button
                 onClick={() => {
                   setQuestionSelected(true);
                 }}
-              >
-                {q}
-              </button>
+                content={q}
+              />
             </li>
           ))}
         </ul>
-        <button
+        <Button
           disabled={cardNumber <= 0}
+          content="Previous question"
           onClick={() =>
             cardNumber > 0 ? setCardNumber(cardNumber - 1) : null
           }
-        >
-          Previous question
-        </button>
+        />
         {cardNumber + 1 < cards.length && (
-          <button
+          <Button
             disabled={!questionSelected}
             onClick={() =>
               cardNumber + 1 < cards.length
                 ? setCardNumber(cardNumber + 1)
                 : null
             }
-          >
-            Next question
-          </button>
+            content="Next question"
+          />
         )}
         {cardNumber + 1 === cards.length && (
-          <button
+          <Button
             disabled={!questionSelected}
             onClick={() => setIsTestFinish(true)}
-          >
-            Finish test
-          </button>
+            content="Finish test"
+          />
         )}
       </>
     );
@@ -88,8 +84,7 @@ export default function App() {
           🔍
         </span>
       </h1>
-      <Button onClick={onClickHandler} content="GO TO TEST" />
-      {/* <button onClick={onClickHandler}>GO TO TEST</button> */}
+      <Button onClick={onClickHandler} content="Go to test" />
       {!isTestFinish && cards.length > 0 && <Question />}
       {isTestFinish && <Result />}
     </div>
