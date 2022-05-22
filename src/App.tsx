@@ -26,15 +26,15 @@ export default function App() {
             <li>{q}</li>
           ))}
         </ul>
-        <button onClick={() => setCardNumber(cardNumber + 1)}>
-          Next question
-        </button>
         <button
           onClick={() =>
             cardNumber > 0 ? setCardNumber(cardNumber - 1) : null
           }
         >
           Previous question
+        </button>
+        <button onClick={() => setCardNumber(cardNumber + 1)}>
+          Next question
         </button>
       </>
     );
