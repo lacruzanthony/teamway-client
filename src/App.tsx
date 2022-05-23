@@ -2,6 +2,7 @@ import React from "react";
 import "./styles.css";
 import axios from "axios";
 import Button from "./components/button";
+// import Question from "./components/question";
 
 interface ICard {
   headline: string;
@@ -79,7 +80,7 @@ export default function App() {
   return (
     <div className="App">
       <h1>
-        Are you an introvert or an extrovert?
+        Are you an introvert or an extrovert??
         <span role="img" aria-label="lens">
           🔍
         </span>
